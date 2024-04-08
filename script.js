@@ -9,3 +9,8 @@ json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
   console.log(data.country_code);
   // so many more properties
 });
+
+
+json(`https://api.ipdata.co?api-key=${apiKey}&fields=ip`).then(data => {
+  console.log(data.ip);
+});
