@@ -1,11 +1,11 @@
-var total = "";
-for( var i = 0; i < 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999; i++ ) {
-  total += i.toString();
-  history.pushState(0,0, total );
-}
-          function openInNewTab(url) {
-  window.open(url, '_blank').focus();
+function json(url) {
+  return fetch(url).then(res => res.json());
 }
 
-// Or just
-window.open(url, '_blank').focus();
+let apiKey = 'your_api_key';
+json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
+  console.log(data.ip);
+  console.log(data.city);
+  console.log(data.country_code);
+  // so many more properties
+});
